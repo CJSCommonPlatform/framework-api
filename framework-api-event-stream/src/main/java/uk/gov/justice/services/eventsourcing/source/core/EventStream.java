@@ -28,6 +28,24 @@ public interface EventStream {
     Stream<JsonEnvelope> readFrom(final long version);
 
     /**
+     * Get the stream of eventStreams.
+     *
+     * @return the stream of events
+     */
+    Stream<JsonEnvelope> readEventsStreams();
+
+    /**
+     * Get the stream of events from the given version.
+     *
+     * @param version the version of the stream
+     * @return the stream of events
+     */
+    Stream<JsonEnvelope> readEventStreamsFrom(final long version);
+
+
+
+
+    /**
      * Store a stream of events.
      *
      * @param events the stream of events to store

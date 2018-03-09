@@ -32,17 +32,16 @@ public interface EventStream {
      *
      * @return the stream of events
      */
-    Stream<JsonEnvelope> readEventsStreams();
+    Stream<JsonEnvelope> readEventStreams();
+
 
     /**
-     * Get the stream of events from the given version.
+     * Get the stream of eventStreams from the given version.
      *
      * @param version the version of the stream
      * @return the stream of events
      */
     Stream<JsonEnvelope> readEventStreamsFrom(final long version);
-
-
 
 
     /**

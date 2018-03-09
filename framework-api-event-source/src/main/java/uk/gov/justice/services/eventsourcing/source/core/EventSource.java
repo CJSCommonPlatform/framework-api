@@ -20,19 +20,19 @@ public interface EventSource {
 
 
     /**
-     * Get a eventStream by stream id.
+     * Get a streams Of eventStreams.
      *
-     * @param streamId - the stream id of the stream to be retrieved
      * @return the {@link EventStream}
      */
-    EventStream getEventStreamById(final UUID streamId);
+    EventStream getEventStreams();
+
 
     /**
      * Get a streams Of eventStreams.
      *
      * @return the {@link EventStream}
      */
-    Stream<EventStream> getEventStreams();
+    EventStream getEventStreamsFrom(final long sequenceNumber);
 
     /**
      * Clones the stream into a new stream id.

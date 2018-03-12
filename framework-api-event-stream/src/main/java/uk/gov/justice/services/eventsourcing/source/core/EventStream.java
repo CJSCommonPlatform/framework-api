@@ -15,7 +15,7 @@ public interface EventStream {
     /**
      * Get the stream of events.
      *
-     * @return the stream of events
+     * @return the Stream of Event Envelopes Stream>
      */
     Stream<JsonEnvelope> read();
 
@@ -26,23 +26,6 @@ public interface EventStream {
      * @return the stream of events
      */
     Stream<JsonEnvelope> readFrom(final long version);
-
-    /**
-     * Get the stream of eventStreams.
-     *
-     * @return the stream of events
-     */
-    Stream<JsonEnvelope> readEventStreams();
-
-
-    /**
-     * Get the stream of eventStreams from the given version.
-     *
-     * @param version the version of the stream
-     * @return the stream of events
-     */
-    Stream<JsonEnvelope> readEventStreamsFrom(final long version);
-
 
     /**
      * Store a stream of events.
@@ -83,14 +66,6 @@ public interface EventStream {
      * @return the latest sequence id for the provided steam. 0 when stream is empty.
      */
     long getCurrentVersion();
-
-    /**
-     * Get the current (current maximum) sequence number) for a event stream
-     *
-     * @return the latest sequence id for the provided steam. 0 when stream is empty.
-     */
-
-    long getCurrentStreamSequence();
 
     /**
      * Retrieve the id of this stream.

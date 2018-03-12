@@ -24,15 +24,7 @@ public interface EventSource {
      *
      * @return the {@link EventStream}
      */
-    EventStream getEventStreams();
-
-
-    /**
-     * Get a streams Of eventStreams.
-     *
-     * @return the {@link EventStream}
-     */
-    EventStream getEventStreamsFrom(final long sequenceNumber);
+    EventStream getEventStreamsBySequence(final long sequenceNumber);
 
     /**
      * Clones the stream into a new stream id.

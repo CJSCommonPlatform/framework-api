@@ -15,7 +15,7 @@ public interface EventStream {
     /**
      * Get the stream of events.
      *
-     * @return the Stream of Event Envelopes Stream>
+     * @return the stream of events
      */
     Stream<JsonEnvelope> read();
 
@@ -73,5 +73,7 @@ public interface EventStream {
      * @return the stream id.
      */
     UUID getId();
+
+    long getSequenceNumber();
 
 }

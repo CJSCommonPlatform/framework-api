@@ -85,6 +85,14 @@ public interface EventStream {
     long getCurrentVersion();
 
     /**
+     * Get the current (current maximum) sequence number) for a event stream
+     *
+     * @return the latest sequence id for the provided steam. 0 when stream is empty.
+     */
+
+    long getCurrentStreamSequence();
+
+    /**
      * Retrieve the id of this stream.
      *
      * @return the stream id.

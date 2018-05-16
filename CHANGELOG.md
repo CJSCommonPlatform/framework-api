@@ -5,6 +5,11 @@ on [Keep a CHANGELOG](http://keepachangelog.com/). This project adheres to
 
 ## [Unreleased]
 
+## [2.0.3] - 2018-05-16
+
+### Changed
+- Downgraded Jackson version to 2.8.11 to fix bug with single argument constructors
+
 ## [2.0.2] - 2018-05-15
 
 ### Changed

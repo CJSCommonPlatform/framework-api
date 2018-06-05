@@ -1,5 +1,6 @@
 package uk.gov.justice.services.adapter.messaging;
 
+import uk.gov.justice.services.core.interceptor.InterceptorChainProcessor;
 import uk.gov.justice.services.subscription.SubscriptionManager;
 
 import javax.jms.Message;
@@ -13,5 +14,6 @@ public interface SubscriptionJmsProcessor {
      * @param subscriptionManager a subscription manager
      * @param message             a message to be processed
      */
-    void process(final SubscriptionManager subscriptionManager, final Message message);
+    void process(final SubscriptionManager subscriptionManager, final Message message,
+                 final InterceptorChainProcessor interceptorChainProcessor);
 }

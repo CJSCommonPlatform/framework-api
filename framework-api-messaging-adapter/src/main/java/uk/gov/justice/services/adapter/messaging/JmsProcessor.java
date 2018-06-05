@@ -1,5 +1,6 @@
 package uk.gov.justice.services.adapter.messaging;
 
+import uk.gov.justice.services.core.interceptor.InterceptorChainProcessor;
 import uk.gov.justice.services.core.interceptor.InterceptorContext;
 
 import java.util.function.Consumer;
@@ -15,5 +16,7 @@ public interface JmsProcessor {
      * @param consumer a consumer for the envelope
      * @param message  a message to be processed
      */
-    void process(final Consumer<InterceptorContext> consumer, final Message message);
+    void process(final Consumer<InterceptorContext> consumer,
+                 final Message message,
+                 final InterceptorChainProcessor interceptorChainProcessor);
 }

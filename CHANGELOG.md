@@ -5,7 +5,7 @@ on [Keep a CHANGELOG](http://keepachangelog.com/). This project adheres to
 
 ## [Unreleased]
 
-## [2.1.0] - 2018-06-20
+## [2.1.1] - 2018-06-20
 
 ### Added
 - Add pageSize to the EventStream readFrom(...) method

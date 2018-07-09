@@ -5,6 +5,11 @@ on [Keep a CHANGELOG](http://keepachangelog.com/). This project adheres to
 
 ## [Unreleased]
 
+## [2.2.0] - 2018-07-10
+
+### Added
+- Accepted Status With Envelope Entity Response Strategy name
+
 ## [2.1.2] - 2018-06-20
 
 ### Changed

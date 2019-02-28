@@ -16,6 +16,7 @@ public final class Component {
 
     public static final String EVENT_API = "EVENT_API";
     public static final String EVENT_PROCESSOR = "EVENT_PROCESSOR";
+    public static final String EVENT_INDEXER = "EVENT_INDEXER";
     public static final String EVENT_LISTENER = "EVENT_LISTENER";
 
     public static final String QUERY_API = "QUERY_API";
@@ -36,6 +37,7 @@ public final class Component {
 
             add(EVENT_API);
             add(EVENT_PROCESSOR);
+            add(EVENT_INDEXER);
             add(EVENT_LISTENER);
 
             add(QUERY_API);

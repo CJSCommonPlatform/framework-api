@@ -5,6 +5,12 @@ on [Keep a CHANGELOG](http://keepachangelog.com/). This project adheres to
 
 ## [Unreleased]
 
+## [3.1.1] 2019-03-14
+### Added
+- LinkedEventSourceTransformation interface to add support for linked events after stream transformation
+- truncate() method to the EventSource interface
+- populate() method to the EventSource interface
+
 ## [3.1.0] 2019-01-08
 ### Added
 - findEventsSince(...) method to the EventSource interface

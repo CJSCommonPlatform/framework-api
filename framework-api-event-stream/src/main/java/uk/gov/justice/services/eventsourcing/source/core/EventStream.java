@@ -2,6 +2,7 @@ package uk.gov.justice.services.eventsourcing.source.core;
 
 
 import uk.gov.justice.services.eventsourcing.source.core.exception.EventStreamException;
+import uk.gov.justice.services.messaging.Envelope;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import java.util.UUID;
@@ -48,6 +49,16 @@ public interface EventStream {
     /**
      * Store a stream of events.
      *
+     * @param events the stream of events to store
+     * @param clazz the return Envelope payload type
+     * @return the current stream version
+     * @throws EventStreamException if an event could not be appended
+     */
+    <T> long append(final Stream<Envelope<T>> events, Class<T> clazz) throws EventStreamException;
+
+    /**
+     * Store a stream of events.
+     *
      * @param stream    the stream of events to store
      * @param tolerance - tolerance for optimistic lock errors. <ul> <li>CONSECUTIVE - store the
      *                  given stream of events with consecutive versions only, fail in case of an
@@ -60,6 +71,21 @@ public interface EventStream {
     long append(final Stream<JsonEnvelope> stream, final Tolerance tolerance) throws EventStreamException;
 
     /**
+     * Store a stream of events.
+     *
+     * @param stream    the stream of events to store
+     * @param tolerance - tolerance for optimistic lock errors. <ul> <li>CONSECUTIVE - store the
+     *                  given stream of events with consecutive versions only, fail in case of an
+     *                  optimistic lock.</li> <li>NON_CONSECUTIVE - allows to store the given stream
+     *                  of events with non consecutive version ids, but reduces the risk of throwing
+     *                  optimistic lock error in case of a version conflict.</li></ul>
+     * @param clazz the return Envelope payload type
+     * @return the current stream version
+     * @throws EventStreamException if an event could not be appended
+     */
+    <T> long append(final Stream<Envelope<T>> stream, final Tolerance tolerance, Class<T> clazz) throws EventStreamException;
+
+    /**
      * Store a stream of events after the given version.
      *
      * @param events  the stream of events to store
@@ -68,6 +94,17 @@ public interface EventStream {
      * @throws EventStreamException if an event could not be appended
      */
     long appendAfter(final Stream<JsonEnvelope> events, final long version) throws EventStreamException;
+
+    /**
+     * Store a stream of events after the given version.
+     *
+     * @param events  the stream of events to store
+     * @param version the version to append from
+     * @param clazz the return Envelope payload type
+     * @return the current stream version
+     * @throws EventStreamException if an event could not be appended
+     */
+    <T> long appendAfter(final Stream<Envelope<T>> events, final long version, Class<T> clazz) throws EventStreamException;
 
     /**
      * Get the current (current maximum) sequence id (version number) for a stream
